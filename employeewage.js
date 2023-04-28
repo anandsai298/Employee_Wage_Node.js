@@ -42,5 +42,38 @@ function calcDailywage(emphrs)
  let empwage=calcDailywage(totalemphrs);
  console.log("totalworkingdays: "+totalworkingdays+"\n"+"total hrs: "+totalemphrs+"\n"+"empwage: "+empwage);
 
+ //UC7A--clac total wage using array foreach travesal or reduce method
+ let totalempwage=0;
+ function sum(dailywage)
+ {
+    totalempwage +=dailywage;
+ }
+ empDailyWageArr.forEach(sum);
+ console.log("totalworkingdays: "+totalworkingdays+"\n"+"total hrs: "+totalemphrs+"\n"+"empwage: "+empwage)
+ function totalwages(totalwage,dailywage)
+ {
+    return totalwage+dailywage;
+ }
+ console.log("Emp Wage With Reduce:"+empDailyWageArr.reduce(totalwages,0));
+ //UC7B--show the day along with daily wage using array map helper function
+ let dailycounter=0;
+ function mapDailyWithWage(dailywage)
+ {
+    dailycounter++;
+    return dailycounter+"="+dailywage;
+ }
+ let mapDailyWithWageArr=empDailyWageArr.map(mapDailyWithWage);
+ console.log("Daily Wage Map");
+ console.log(mapDailyWithWageArr);
+ //UC7C--show days when full time wage of 160 were earned
+ function fulltimewage(dailywage)
+ {
+    return dailywage.includes("160");
+ }
+ let fulldaywageArr=mapDailyWithWageArr.filter(fulltimewage);
+ console.log("daily wage filter when fulltime wage earned");
+ console.log(fulldaywageArr);
+
+
 
        
